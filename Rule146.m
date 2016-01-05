@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (* Mathematica Package *)
 
 BeginPackage["Rule146`"]
@@ -5,6 +7,7 @@ BeginPackage["Rule146`"]
 
 HighlightEvenRuns
 aph
+ParticleInit
 
 Begin["`Private`"] (* Begin Private Context *) 
 
@@ -22,6 +25,8 @@ aph[ca_, ps_: 1, opts___] :=
  Framed@ArrayPlot[ca, 
    ColorRules -> {0 -> White, 1 -> Black, 2 -> Red, 3 -> Blue, 
      4 -> Orange}, PixelConstrained -> ps, Frame -> False, opts]
+
+ParticleInit[length_]:=RotateRight[Riffle[RandomInteger[1,Ceiling[length/2]],0],Floor[length/2]]
 
 
 End[] (* End Private Context *)
